@@ -1,0 +1,63 @@
+1. Use Rate Limiting & IP Throttling
+
+Helps prevent spam and abuse without needing user accounts.
+
+Tools like Express Rate Limit can be used to limit requests from a single IP.
+
+OKAY
+
+
+2. Input Sanitization & Validation
+
+Always clean and validate input before saving to the database.
+
+Use libraries like express-validator to prevent SQL injection or script attacks.
+
+OKAY
+
+
+3. Parameterized Queries (Prepared Statements)
+
+You’re using SQLite, which supports this easily.
+
+Ensures safe database operations without raw string interpolation.
+
+OKAY
+
+4. Store Posts with Metadata (Optional)
+
+You can store things like timestamp, IP hash, or browser fingerprint anonymously.
+
+Helps detect abuse or coordinate moderation without revealing identities.
+
+Too much additional info i don't understand
+
+
+5. Use CAPTCHA or Honeypot Fields
+
+Simple way to stop bots while keeping users anonymous.
+
+Google reCAPTCHA or hidden honeypot fields can reduce spam drastically.
+
+Okay only added a Honeypot trap
+
+
+6. Database File Permissions
+
+Make sure your posts.db file is not exposed to the public.
+
+Only your server-side code should access it; lock down filesystem permissions.
+
+
+7. Backups + Encryption
+
+Use automated encrypted backups just in case something goes sideways.
+
+Optionally encrypt content at rest for an extra layer of protection.
+
+8.Crowd control
+Add a “flagged” column to your table so you can mark but not immediately delete comments for review:
+
+sql ALTER TABLE compliments ADD COLUMN flagged INTEGER DEFAULT 0;
+
+let users “report” mean compliments for review — poetic justice via crowdsourced kindness!

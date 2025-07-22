@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flagged {
+  color: #bb1313; /* Coral red, easy on dark background */
+  font-weight: bold;
+}
+</style>
+
+<div class="admin-dashboard">
+  <h2>Admin Compliment Dashboard</h2>
+  <input type="text" id="filter" placeholder="Search compliments..." oninput="filterCompliments()">
+  <button onclick="deleteSelectedCompliments()"> Delete Selected</button>
+  <ul id="complimentList"></ul>
+</div>
+
+
+<script src="dashboard.js"></script>
+
